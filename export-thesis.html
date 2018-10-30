@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="install.html">
-<link rel="next" href="section-4.html">
+<link rel="next" href="write-thesis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -113,10 +113,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="export-thesis.html"><a href="export-thesis.html#import-template"><i class="fa fa-check"></i><b>3.1</b> 匯入論文模板</a></li>
 <li class="chapter" data-level="3.2" data-path="export-thesis.html"><a href="export-thesis.html#edit-front-matter"><i class="fa fa-check"></i><b>3.2</b> 編輯封面</a></li>
 <li class="chapter" data-level="3.3" data-path="export-thesis.html"><a href="export-thesis.html#compile-thesis"><i class="fa fa-check"></i><b>3.3</b> Compile 論文</a></li>
-<li class="chapter" data-level="3.4" data-path="export-thesis.html"><a href="export-thesis.html#dir-structure"><i class="fa fa-check"></i><b>3.4</b> 檔案結構</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="section-4.html"><a href="section-4.html"><i class="fa fa-check"></i><b>4</b> 論文撰寫</a></li>
-<li class="chapter" data-level="5" data-path="-1.html"><a href="-1.html"><i class="fa fa-check"></i><b>5</b> 論文撰寫</a></li>
+<li class="chapter" data-level="4" data-path="write-thesis.html"><a href="write-thesis.html"><i class="fa fa-check"></i><b>4</b> 論文撰寫</a><ul>
+<li class="chapter" data-level="4.1" data-path="write-thesis.html"><a href="write-thesis.html#dir-structure"><i class="fa fa-check"></i><b>4.1</b> 檔案結構</a></li>
+<li class="chapter" data-level="4.2" data-path="write-thesis.html"><a href="write-thesis.html#index.rmd"><i class="fa fa-check"></i><b>4.2</b> <code>index.Rmd</code></a></li>
+<li class="chapter" data-level="4.3" data-path="write-thesis.html"><a href="write-thesis.html#write-lang"><i class="fa fa-check"></i><b>4.3</b> 撰寫語言</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="write-thesis.html"><a href="write-thesis.html#output.yml"><i class="fa fa-check"></i><b>4.3.1</b> <code>_output.yml</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="write-thesis.html"><a href="write-thesis.html#bookdown.yml"><i class="fa fa-check"></i><b>4.3.2</b> <code>_bookdown.yml</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="write-thesis.html"><a href="write-thesis.html#bib-cite"><i class="fa fa-check"></i><b>4.4</b> 文獻引用</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html"><i class="fa fa-check"></i><b>5</b> Bookdown Cheatsheet</a></li>
 <li class="chapter" data-level="6" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>6</b> 進階功能擴充</a><ul>
 <li class="chapter" data-level="6.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>6.1</b> 語言學</a></li>
 </ul></li>
@@ -146,60 +153,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="import-template" class="section level2">
 <h2><span class="header-section-number">3.1</span> 匯入論文模板</h2>
 <p>開啟 RStudio，選取左上方 <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown</code>， 即會出現以下畫面：</p>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/liao961120/ntuthesis/master/img/rmd-template.png" />
-
-</div>
+<p><img src="figs/rmd-template.png" width="90%" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li>選取左方<code>From Template</code></li>
 <li>找到<code>Thesis Template for NTU</code></li>
-<li>在下方<code>Name:</code>寫下創建的資料夾名稱</li>
+<li>在下方<code>Name:</code>寫下欲創建之資料夾名稱</li>
 </ol>
-<p>接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 <code>File</code> &gt; <code>New Project</code> &gt; <code>Existing Directory</code> 達成，或直接使用下方指令：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ntuthesis)
-<span class="kw">init_proj</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>)<span class="er">))</span>  <span class="co"># init working dir as proj.</span></code></pre></div>
+<p>或是直接在 console 執行：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmarkdown<span class="op">::</span><span class="kw">draft</span>(<span class="st">&quot;project_name&quot;</span>,
+                 <span class="dt">template =</span> <span class="st">&quot;ntu_bookdown&quot;</span>,
+                 <span class="dt">package =</span> <span class="st">&quot;ntuthesis&quot;</span>)</code></pre></div>
+<p>接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 <code>File</code> &gt; <code>New Project</code> &gt; <code>Existing Directory</code> 達成，</p>
+<p>或直接使用下方指令（working dir 需是專案資料夾）：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
+<p>詳細的檔案結構，見第 <a href="write-thesis.html#dir-structure">4.1</a> 節。</p>
 </div>
 <div id="edit-front-matter" class="section level2">
 <h2><span class="header-section-number">3.2</span> 編輯封面</h2>
 <p>在<code>_person-info.yml</code>輸入個人資料後，執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comp_front</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
 <p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，<code>front-matter/</code> 中的其它檔案不須理會。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
 <p>已簽名的「口試委員審定書」，將檔案命名為 <code>certification-scan.pdf</code> 並放在專案資料夾的最頂層。</p>
 </div>
 <div id="compile-thesis" class="section level2">
 <h2><span class="header-section-number">3.3</span> Compile 論文</h2>
 <p>接著用 RStudio Environment Pane 裡的 button 輸出論文：</p>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/liao961120/ntuthesis/master/img/build-button.png" />
-
-</div>
+<p><img src="figs/build-button.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>或是在 console 執行下方指令：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
 bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::bookdown::pdf_book&quot;</span>)</code></pre></div>
 <p>如此便會在 <code>_book/</code> 中生成完整的論文（gitbook 和 PDF 格式）。</p>
-</div>
-<div id="dir-structure" class="section level2">
-<h2><span class="header-section-number">3.4</span> 檔案結構</h2>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── index.Rmd            <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
-├── _acknowledge.Rmd     <span class="co"># acknowledgement</span>
-├── _abstract-en.Rmd     <span class="co"># abstract</span>
-├── _abstract-zh.Rmd     <span class="co"># Same as above, but in Chinese</span>
-|
-├── 01-intro.Rmd         <span class="co"># Chapter 1 content</span>
-├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
-├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
-├── 99-references.Rmd    <span class="co"># Don&#39;t need to edit</span>
-├── ref.bib              <span class="co"># References</span>
-├── cite-style.csl       <span class="co"># Citation style</span>
-|
-├── _bookdown.yml        <span class="co"># label names in html; Rmd files order</span>
-├── _output.yml          <span class="co"># preamble, pandoc args, cite-pkg</span>
-|
-├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)</span>
-├── _person-info.yml      <span class="co"># Info to generate front matter</span>
-├── certification-scan.pdf  <span class="co"># 已簽名&#39;口試委員審查書&#39;</span>
-└── front_matter
-    └── certification.pdf   <span class="co"># 空白&#39;口試委員審查書&#39;</span></code></pre></div>
 
 </div>
 </div>
@@ -209,7 +192,7 @@ bookdown<span class="op">::</span><span class="kw">render_book</span>(<span clas
         </div>
       </div>
 <a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="section-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -239,7 +222,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-intro.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-install-compile.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
