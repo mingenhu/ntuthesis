@@ -131,6 +131,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>5</b> 進階功能擴充</a><ul>
 <li class="chapter" data-level="5.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>5.1</b> 語言學</a></li>
 </ul></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="latex-cite-pkg.html"><a href="latex-cite-pkg.html"><i class="fa fa-check"></i><b>A</b> LaTeX 文獻引用</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/liao961120/ntuthesis" target="blank">Published with bookdown</a></li>
@@ -267,7 +269,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="multi-lang-cite" class="section level3">
 <h3><span class="header-section-number">3.4.4</span> 多語言文獻引用</h3>
-<p>多語言的文獻引用在此是最大的障礙，csl 只能支持單一語言的文獻格式。例如，若將英文格式套用到中文文獻，引用文獻就會出現英文的半形逗點和句點。</p>
+<p>透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。</p>
+<p>多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至 <a href="latex-cite-pkg.html#latex-cite-pkg">A</a> 給我一些指教。</p>
 
 </div>
 </div>
@@ -288,6 +291,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li id="fn2"><p>此模板提供的 <code>cite-style.csl</code> 是 APA 英文第六版。此外，<a href="http://blog.pulipuli.info/2011/05/zoteroapa.html">這裡</a>亦有提供 APA 中文版的引用格式。需注意的是 Pandoc <strong>不支援<a href="http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html">雙語 csl</a></strong>。<a href="write-thesis.html#fnref2">↩</a></p></li>
 </ol>
 </div>
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () { 
+  this.language = "zh-Hant";
+};
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://ntuthesis.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>
