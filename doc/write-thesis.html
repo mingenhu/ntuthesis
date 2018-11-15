@@ -234,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="index-rmd" class="section level2">
 <h2><span class="header-section-number">3.2</span> <code>index.Rmd</code></h2>
-<p><code>index.Rmd</code> 是設定論文內文格式的地方，包含 yaml 以及 R setup code chunk。此模板將 code chunk 預設的 working directory 改成 <code>R/</code><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>，如此較符合一般寫 Rscript 的邏輯<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>。若要更改此設定，至 setup code chunk 更改 <code>knitr::opts_knit$set(root.dir='R')</code>。</p>
+<p><code>index.Rmd</code> 是設定論文內文格式的地方，包含 yaml 以及 R setup code chunk。此模板將 code chunk 預設的 working directory 改成 <code>R/</code><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，如此較符合一般寫 Rscript 的邏輯<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。若要更改此設定，至 setup code chunk 更改 <code>knitr::opts_knit$set(root.dir='R')</code>。</p>
 </div>
 <div id="write-lang" class="section level2">
 <h2><span class="header-section-number">3.3</span> 撰寫語言</h2>
@@ -249,7 +249,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="bookdown.yml" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> <code>_bookdown.yml</code></h3>
 <p><code>_bookdown.yml</code> 中，可以對標籤的名稱進行定義。這裡的設定與 PDF 輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook 輸出，可忽略此段。</p>
-<p>此外，<code>_bookdown.yml</code> 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>。</p>
+<p>此外，<code>_bookdown.yml</code> 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>。</p>
 <p>在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
   <span class="fu">html:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
@@ -259,10 +259,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="bib-cite" class="section level2">
 <h2><span class="header-section-number">3.4</span> 文獻引用</h2>
 <p>R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使用見 <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown 官方說明</a> 。</p>
-<p>此模板目前產生文獻格式的方法是依靠 <a href="https://github.com/jgm/pandoc-citeproc">Pandoc citeproc</a>，因此，文獻格式是依據 <code>cite-style.csl</code><a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> 產生的。使用者可至 <a href="https://www.zotero.org/styles">Zotero Style Repository</a> 下載所需的 csl 檔並覆蓋專案資料夾中的 <code>cite-style.csl</code>。</p>
+<p>此模板目前產生文獻格式的方法是依靠 <a href="https://github.com/jgm/pandoc-citeproc">Pandoc citeproc</a>，因此，文獻格式是依據 <code>cite-style.csl</code><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> 產生的。使用者可至 <a href="https://www.zotero.org/styles">Zotero Style Repository</a> 下載所需的 csl 檔並覆蓋專案資料夾中的 <code>cite-style.csl</code>。</p>
 <div id="ref-bib" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> <code>ref.bib</code></h3>
-<p><code>.bib</code> 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。匯出後，將檔名命名為 <code>ref.bib</code> 放在專案資料夾<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>。</p>
+<p><code>.bib</code> 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。匯出後，將檔名命名為 <code>ref.bib</code> 放在專案資料夾<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>。</p>
 <p><code>.bib</code> 內的一篇引用資料會類似：</p>
 <div class="sourceCode"><pre class="sourceCode bib"><code class="sourceCode bibtex"><span class="va">@article</span>{<span class="ot">leung2008</span>,
   <span class="dt">title</span> = {Multicultural Experience Enhances Creativity: {{The}} When and How.},
@@ -344,12 +344,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div class="footnotes">
 <hr />
-<ol start="5">
-<li id="fn5"><p>預設是 Rmd 檔所在的位置。<a href="write-thesis.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>例如，使用相對路徑匯入資料時，一般會以 Rscript 所在的位置作為基準。<a href="write-thesis.html#fnref6">↩</a></p></li>
-<li id="fn7"><p>此模板即未進行設定，因此第一章的內容寫在 <code>01-xxx.Rmd</code> 就會自動排在第一。而若檔名以底線開頭（<code>_</code>）則會被忽略。更多內容詳見 <a href="https://bookdown.org/yihui/bookdown/usage.html">bookdown</a>。<a href="write-thesis.html#fnref7">↩</a></p></li>
-<li id="fn8"><p>此模板提供的 <code>cite-style.csl</code> 是 APA 英文第六版。此外，<a href="http://blog.pulipuli.info/2011/05/zoteroapa.html" class="uri">http://blog.pulipuli.info/2011/05/zoteroapa.html</a> 亦有提供 APA 中文版的引用格式。需注意的是 Pandoc <strong>不支援雙語 csl</strong> (<a href="http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html" class="uri">http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html</a>)。<a href="write-thesis.html#fnref8">↩</a></p></li>
-<li id="fn9"><p>或是可以自訂檔名，並到 <code>index.Rmd</code> yaml 中的 <code>bibliography: ref.bib</code> 更改 <code>ref.bib</code> 檔名。此外，亦可使用多個 <code>.bib</code> 檔：<code>bibliography: [ref1.bib, ref2.bib, ref3.bib]</code>。<a href="write-thesis.html#fnref9">↩</a></p></li>
+<ol start="4">
+<li id="fn4"><p>預設是 Rmd 檔所在的位置。<a href="write-thesis.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>例如，使用相對路徑匯入資料時，一般會以 Rscript 所在的位置作為基準。<a href="write-thesis.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>此模板即未進行設定，因此第一章的內容寫在 <code>01-xxx.Rmd</code> 就會自動排在第一。而若檔名以底線開頭（<code>_</code>）則會被忽略。更多內容詳見 <a href="https://bookdown.org/yihui/bookdown/usage.html">bookdown</a>。<a href="write-thesis.html#fnref6">↩</a></p></li>
+<li id="fn7"><p>此模板提供的 <code>cite-style.csl</code> 是 APA 英文第六版。此外，<a href="http://blog.pulipuli.info/2011/05/zoteroapa.html" class="uri">http://blog.pulipuli.info/2011/05/zoteroapa.html</a> 亦有提供 APA 中文版的引用格式。需注意的是 Pandoc <strong>不支援雙語 csl</strong> (<a href="http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html" class="uri">http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html</a>)。<a href="write-thesis.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>或是可以自訂檔名，並到 <code>index.Rmd</code> yaml 中的 <code>bibliography: ref.bib</code> 更改 <code>ref.bib</code> 檔名。此外，亦可使用多個 <code>.bib</code> 檔：<code>bibliography: [ref1.bib, ref2.bib, ref3.bib]</code>。<a href="write-thesis.html#fnref8">↩</a></p></li>
 </ol>
 </div>
 <br><br>
