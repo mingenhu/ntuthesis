@@ -219,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
 ├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
 ├── 80-appx-help.Rmd     <span class="co"># Appendix Content</span>
-├── 99-references.Rmd    <span class="co"># Don&#39;t need to edit</span>
+├── 99-references.Rmd    <span class="co"># Edit &quot;References&quot; Title</span>
 ├── ref.bib              <span class="co"># References</span>
 ├── cite-style.csl       <span class="co"># Citation style</span>
 |
@@ -273,8 +273,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">journaltitle</span> = {American Psychologist},
   <span class="dt">date</span> = {2008},
   <span class="dt">pages</span> = {169-181},
-  <span class="dt">keywords</span> = {*Cognition,*Creativity,*Culture (Anthropological),*Experiences (Events),Multiculturalism},
-  <span class="dt">author</span> = {Leung, Angela Ka-yee and Maddux, William W. and Galinsky, Adam D. and Chiu, Chi-yue}
+  <span class="dt">keywords</span> = {*Cognition,*Creativity,
+    *Culture (Anthropological),
+    *Experiences (Events),Multiculturalism},
+  <span class="dt">author</span> = {Leung, Angela Ka-yee and 
+    Maddux, William W. and 
+    Galinsky, Adam D. and Chiu, Chi-yue}
 }</code></pre></div>
 <p>其中第一行的 <code>leung2008</code> 即為 citation key。透過 <code>@citekey</code>(<code>@leung2008</code>)即可在文獻中插入 citation。匯出論文時，文末會自動產生引用的文獻。</p>
 </div>
