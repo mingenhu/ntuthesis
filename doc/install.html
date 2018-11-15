@@ -121,8 +121,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>關於</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> 安裝</a><ul>
-<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>1.1</b> LaTeX</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#tinytex-"><i class="fa fa-check"></i><b>1.1.1</b> tinytex 套件</a></li>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#ide"><i class="fa fa-check"></i><b>1.1</b> IDE</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>1.2</b> LaTeX</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#tinytex-"><i class="fa fa-check"></i><b>1.2.1</b> tinytex 套件</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="export-thesis.html"><a href="export-thesis.html"><i class="fa fa-check"></i><b>2</b> 輸出論文</a><ul>
@@ -199,39 +200,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="install" class="section level1">
 <h1><span class="header-section-number">第 1 章</span> 安裝</h1>
+<div id="ide" class="section level2">
+<h2><span class="header-section-number">1.1</span> IDE</h2>
+<p>建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH。</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis&quot;</span>)</code></pre></div>
+</div>
 <div id="latex" class="section level2">
-<h2><span class="header-section-number">1.1</span> LaTeX</h2>
+<h2><span class="header-section-number">1.2</span> LaTeX</h2>
 <p>若已有管理、安裝 LaTeX 套件經驗者，可忽略。</p>
 <div id="tinytex-" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> tinytex 套件</h3>
+<h3><span class="header-section-number">1.2.1</span> tinytex 套件</h3>
 <p>若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</code></pre></div>
 <p>接著，選擇<strong>與電腦相同作業系統</strong>的連結下載 TinyTeX Library<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>：</p>
 <ul>
 <li><a href="http://bit.ly/TinyTex-linux">Linux x86_64</a></li>
-<li><a href="http://bit.ly/TinyTeX-win7">Windows 7 64bit</a></li>
-<li>Windows 10 64bit
-<ul>
-<li>目前不確定是否可直接使用<a href="http://bit.ly/TinyTeX-win7">Windows 7 64bit</a>，需要使用者們的測試。若可以的話，希望可以通知我（在下方留言或寄信給我）</li>
-</ul></li>
+<li><a href="http://bit.ly/TinyTeX-win">Windows 7/10 64bit</a></li>
 <li>Mac
 <ul>
-<li>目前無法提供，需要 Mac 使用者的協助（見 <a href="install.html#tinytex-manage">1.1.1.1</a>）</li>
+<li>目前無法提供，需要 Mac 使用者的協助（見 <a href="install.html#tinytex-manage">1.2.1.1</a>）</li>
 </ul></li>
 </ul>
 <p>下載檔案後，</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>將檔案解壓縮<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p></li>
-<li><p>將解壓後資料夾中的 <code>.TinyTeX/</code> 放至喜歡的路徑（e.g. <code>~/.TinyTeX</code>）</p></li>
+<li><p>將解壓後資料夾中的 <code>.TinyTeX/</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> 放至喜歡的路徑（e.g. <code>~/.TinyTeX</code>）</p></li>
 <li><p>接著在 R 中執行：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">use_tinytex</span>()</code></pre></div>
 <p>即會跳出一個視窗。請選擇 <code>.TinyTeX/</code> 所在的路徑。</p></li>
 </ol>
 <p>若失敗詳見<a href="https://yihui.name/en/2018/08/tinytex-flash-drive">此篇文章</a>。</p>
 <div id="tinytex-manage" class="section level4">
-<h4><span class="header-section-number">1.1.1.1</span> LaTeX 套件管理</h4>
-<p>在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。</p>
+<h4><span class="header-section-number">1.2.1.1</span> LaTeX 套件管理</h4>
+<p>在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。</p>
 <p>此外，可以將安裝下來的 TinyTeX 及其套件複製到其它（同作業系統的）電腦上，如此就不需每此換電腦就要重新下載 LaTeX 套件。</p>
 <p>執行</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">copy_tinytex</span>()</code></pre></div>
@@ -246,7 +247,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol start="1">
 <li id="fn1"><p>根據 Yihui 的說明 (<a href="https://yihui.name/en/2018/08/tinytex-flash-drive" class="uri">https://yihui.name/en/2018/08/tinytex-flash-drive</a>)，TinyTex 具有可攜式（portable）的特性。<a href="install.html#fnref1">↩</a></p></li>
 <li id="fn2"><p>Linux 使用者可用 <code>tar -zxvf tinytex-linux.tar.gz</code> 指令解壓縮。Windows 使用者可用 <a href="https://www.developershome.com/7-zip/">7-Zip</a> 解壓縮。<a href="install.html#fnref2">↩</a></p></li>
-<li id="fn3"><p>因此，若沒有使用上述提供的 TinyTeX，第一次輸出 PDF 可能會需要許多時間下載缺少的 LaTeX。<a href="install.html#fnref3">↩</a></p></li>
+<li id="fn3"><p>在 Windows 上是 <code>TinyTeX/</code><a href="install.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>因此，若沒有使用上述提供的 TinyTeX，第一次輸出 PDF 可能會需要許多時間下載缺少的 LaTeX。<a href="install.html#fnref4">↩</a></p></li>
 </ol>
 </div>
 <br><br>

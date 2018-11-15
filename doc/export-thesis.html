@@ -121,8 +121,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>關於</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> 安裝</a><ul>
-<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>1.1</b> LaTeX</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#tinytex-"><i class="fa fa-check"></i><b>1.1.1</b> tinytex 套件</a></li>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#ide"><i class="fa fa-check"></i><b>1.1</b> IDE</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>1.2</b> LaTeX</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#tinytex-"><i class="fa fa-check"></i><b>1.2.1</b> tinytex 套件</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="export-thesis.html"><a href="export-thesis.html"><i class="fa fa-check"></i><b>2</b> 輸出論文</a><ul>
@@ -203,19 +204,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">2.1</span> 匯入論文模板</h2>
 <p>在 console 執行：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">import_template</span>(<span class="st">&quot;project_name&quot;</span>)</code></pre></div>
-<p>接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 <code>File</code> &gt; <code>New Project</code> &gt; <code>Existing Directory</code> 達成，或直接使用下方指令（working dir 需是專案資料夾）：</p>
+<p>接著將該資料夾變更為 bookdown 專案（working dir 需為該專案資料夾）：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
 <p>詳細的檔案結構，見 <a href="write-thesis.html#dir-structure">3.1</a>。</p>
 </div>
 <div id="edit-front-matter" class="section level2">
 <h2><span class="header-section-number">2.2</span> 編輯封面</h2>
-<p>在<code>_person-info.yml</code>輸入個人資料後，執行：</p>
+<p>在<code>_person-info.yml</code>輸入個人資料後，並且確定電腦上有<strong>標楷體</strong>和 <strong>Times New Roman</strong> 這兩種字體（Windows 有內建這兩種字體）。若無，請將<code>_person-info.yml</code>中：</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="co">#cjk-mainfont: &#39;AR PL KaitiM Big5&#39;  # Default, 標楷體</span>
+<span class="co">#en-mainfont: &#39;Liberation Serif&#39;  # Default, Times New Roman</span></code></pre></div>
+<p>修改為其它電腦上的字體，例如：</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">cjk-mainfont:</span><span class="at"> </span><span class="st">&#39;Noto Serif CJK TC&#39;</span><span class="er">  # Default, 標楷體</span>
+<span class="fu">en-mainfont:</span><span class="at"> </span><span class="st">&#39;Liberation Serif&#39;</span><span class="er">  # Default, Times New Roman</span></code></pre></div>
+<p>接著執行：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
-<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，<code>front-matter/</code> 中的其它檔案不須理會。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
-<p>簽名過的「口試委員審定書」，請將檔案命名為 <code>certification-scan.pdf</code> 並放在專案資料夾的最頂層。</p>
+<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，不須理會 <code>front-matter/</code> 中的其它檔案。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
+<p>使用者可以將 <code>front-matter/certification.pdf</code> 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 <code>certification-scan.pdf</code> ，取代原本專案資料夾的同名檔案。</p>
 </div>
 <div id="compile-thesis" class="section level2">
 <h2><span class="header-section-number">2.3</span> Compile 論文</h2>
+<p>如同前述（<a href="export-thesis.html#edit-front-matter">2.2</a>），在輸出論文時，需確保系統上已安裝<strong>標楷體</strong>和 <strong>Times New Roman</strong>，若無，請依 <a href="export-thesis.html#edit-front-matter">2.2</a> 修改 <code>index.Rmd</code> yaml 中的</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="co">#cjk-mainfont: &#39;AR PL KaitiM Big5&#39;  # Default: 標楷體</span>
+<span class="co">...</span>
+<span class="co">#en-mainfont: &#39;Liberation Serif&#39;  # Default: Times New Roman</span></code></pre></div>
 <p>接著用 RStudio Build Pane 裡的 button 輸出論文：</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="figs/build-button.gif" alt="透過 RStudio 輸出論文" width="100%" />
