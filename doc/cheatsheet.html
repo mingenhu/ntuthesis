@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>臺大論文模板</title>
-  <meta name="description" content="臺大論文模板">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <title>第 4 章 語法 Cheatsheet | 臺大論文模板</title>
+  <meta name="description" content="第 4 章 語法 Cheatsheet | 臺大論文模板">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="臺大論文模板" />
+  <meta property="og:title" content="第 4 章 語法 Cheatsheet | 臺大論文模板" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="liao961120/ntuthesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="臺大論文模板" />
+  <meta name="twitter:title" content="第 4 章 語法 Cheatsheet | 臺大論文模板" />
   
   
   
@@ -25,7 +25,7 @@
 <meta name="author" content="廖永賦">
 
 
-<meta name="date" content="2018-11-15">
+<meta name="date" content="2019-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="add-on.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -316,26 +317,31 @@ $$a^2 + b^2 = c^2$$
 <td align="left">lem</td>
 </tr>
 <tr class="odd">
-<td align="left">definition</td>
-<td align="left">Definition</td>
-<td align="left">def</td>
-</tr>
-<tr class="even">
 <td align="left">corollary</td>
 <td align="left">Corollary</td>
 <td align="left">cor</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">proposition</td>
 <td align="left">Proposition</td>
 <td align="left">prp</td>
 </tr>
+<tr class="odd">
+<td align="left">conjecture</td>
+<td align="left">Conjecture</td>
+<td align="left">cnj</td>
+</tr>
 <tr class="even">
+<td align="left">definition</td>
+<td align="left">Definition</td>
+<td align="left">def</td>
+</tr>
+<tr class="odd">
 <td align="left">example</td>
 <td align="left">Example</td>
 <td align="left">exm</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">exercise</td>
 <td align="left">Exercise</td>
 <td align="left">exr</td>
@@ -405,7 +411,7 @@ knitr::kable(
 見表 \@ref(tab:mtcars)</code></pre></div>
 
 <table>
-<caption><span id="tab:mtcar">表 4.2: </span>Dynamic variable in caption: 2018-11-15 14:09:40.</caption>
+<caption><span id="tab:mtcar">表 4.2: </span>Dynamic variable in caption: 2019-01-22 07:18:01.</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -574,7 +580,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -586,6 +592,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/03-bookdown-demo.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["ntu-bookdown.pdf"],
 "toc": {
@@ -601,7 +611,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
