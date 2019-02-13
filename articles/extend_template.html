@@ -174,7 +174,7 @@
 <a href="#cover" class="anchor"></a>論文封面</h3>
 <ol style="list-style-type: decimal">
 <li><p>使用 Word 製作<strong>論文封面</strong>，將 Word 檔命名為 <code>front_matter.docx</code> 置於 <code>front_matter</code> 資料夾中</p></li>
-<li><p>將由 Word 輸出<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>的論文封面命名為 <code>front_matter.pdf</code> 置於 <code>front_matter</code> 資料夾中</p></li>
+<li><p>將由 Word 輸出的論文封面命名為 <code>front_matter.pdf</code> 置於 <code>front_matter</code> 資料夾中</p></li>
 <li>
 <p>至 <a href="https://github.com/liao961120/ntuthesis/blob/a97c1f583b6103792912bf125540b8dde2db30e9/example-thesis/latex/template.tex#L294"><code>latex/template.tex</code></a> 找到下方這行：</p>
 <div class="sourceCode"><pre class="sourceCode tex"><code class="sourceCode latex"><span class="fu">\includepdf</span>[pages={1}, scale=1]{front_matter/front_matter.pdf}</code></pre></div>
@@ -293,7 +293,6 @@
 <hr>
 <ol>
 <li id="fn1"><p>見使用說明：<a href="/ntuthesis/doc/export-thesis.html#import-template">匯入論文模板</a>。<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>若 Word 沒有內建 PDF 輸出功能，可使用 <code>ntuthesis::word2pdf('front_matter.docx', 'front_matter.pdf')</code> 將 Word 輸出為 PDF。<a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
   </div>
