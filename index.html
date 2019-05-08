@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ntuthesis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -117,12 +117,34 @@
 <p>2019-02-10 之前已使用 <code>ntuthesis</code> 撰寫論文者，請下載 <code>v1.0.0</code>：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages('remotes')</span>
 remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"liao961120/ntuthesis@v1.0.0"</span>)</code></pre></div>
+<p>並請閱讀<a href="https://liao961120.github.io/ntuthesis/doc-v1">第一版的說明文件</a>。</p>
 </div>
-<div class="section level3">
-<h3>最新版</h3>
+<div id="-v2-0-0" class="section level3">
+<h3 class="hasAnchor">
+<a href="#-v2-0-0" class="anchor"></a>最新版本 (<code>v2.0.0</code>)</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages('remotes')</span>
 remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"liao961120/ntuthesis"</span>)</code></pre></div>
-<p>新版的 <code>ntuthesis</code> 能加入其它學校的模板。目前正在開發中，API 與舊版兼容，但舊的 <code>ntu_bookdown</code> 模板已更新為 <code>ntu</code>，並且不容於新版。已使用 <code>ntu_bookdown</code> 模板者，請下載 <code>v1.0.0</code>。</p>
+<p>安裝完成後，執行下方指令，下載套件所需的字體檔：</p>
+<pre><code>ntuthesis::download_fonts()</code></pre>
+<p>新版的 <code>ntuthesis</code> 較易加入其它學校模板，目前正在開發中，API 與舊版兼容，但舊的 <code>ntu_bookdown</code> 模板已更新為 <code>ntu</code>，並且不容於新版。已使用 <code>ntu_bookdown</code> 模板者，請下載 <code>v1.0.0</code>。</p>
+<div id="v2-0-0--v1-0-0" class="section level4">
+<h4 class="hasAnchor">
+<a href="#v2-0-0--v1-0-0" class="anchor"></a><code>v2.0.0</code> 相較 <code>v1.0.0</code>
+</h4>
+<p>若無特殊需求，建議使用最新版本，<code>v1.0.0</code> 有一些格式上的問題。</p>
+<p><code>v2.0.0</code> 新增與改進了以下功能：</p>
+<ul>
+<li>
+<p>解決跨作業系統的字型問題</p>
+<p>使用者不需額外設定字型，PDF 輸出字型預設為「標楷體」(中文) 與「Times New Roman」(英文)，並且<a href="https://liao961120.github.io/ntuthesis/doc/add-on.html">支援 IPA 語音符號</a></p>
+</li>
+<li>
+<p>修正字體大小</p>
+<p><code>v1.0.0</code> 的字體大小為錯誤的 (非 12pt)，此版本修正為 12pt。</p>
+</li>
+<li><p>改進英文 PDF 輸出格式：頂層標題置中</p></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section level2">
