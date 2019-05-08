@@ -207,37 +207,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>2019-02-10 之前已使用 <code>ntuthesis</code> 撰寫論文者，請下載 <code>v1.0.0</code>：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&#39;remotes&#39;)</span>
 remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis@v1.0.0&quot;</span>)</code></pre></div>
+<p>並請閱讀<a href="https://liao961120.github.io/ntuthesis/doc-v1">第一版的說明文件</a>。</p>
 </div>
 <div id="e69c80e696b0e78988" class="section level3 unnumbered">
 <h3>最新版</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&#39;remotes&#39;)</span>
 remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis&quot;</span>)</code></pre></div>
-<p>新版的 <code>ntuthesis</code> 能加入其它學校的模板，目前正在開發中。API 與舊版兼容，但舊的 <code>ntu_bookdown</code> 模板已更新為 <code>ntu</code>，並且不容於新版。已使用 <code>ntu_bookdown</code> 模板者，請下載 <code>v1.0.0</code>。</p>
+<p>安裝完成後，執行下方指令，下載套件所需的字體檔：</p>
+<pre><code>ntuthesis::download_fonts()</code></pre>
+<p>新版的 <code>ntuthesis</code> 較易加入其它學校模板，目前正在開發中，API 與舊版兼容，但舊的 <code>ntu_bookdown</code> 模板已更新為 <code>ntu</code>，並且不容於新版。已使用 <code>ntu_bookdown</code> 模板者，請下載 <code>v1.0.0</code>。</p>
 </div>
 <div id="ide" class="section level2">
 <h2><span class="header-section-number">1.1</span> IDE</h2>
-<p>建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH。</p>
+<p>建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH，對使用者較為麻煩。</p>
 </div>
 <div id="latex" class="section level2">
 <h2><span class="header-section-number">1.2</span> LaTeX</h2>
 <p>若已有管理、安裝 LaTeX 套件經驗者，可忽略。</p>
 <div id="tinytex-" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> tinytex 套件</h3>
-<p>若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：</p>
+<p>若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件 (Mac 使用者可能會安裝失敗，見下文)：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</code></pre></div>
 <p>接著，選擇<strong>與電腦相同作業系統</strong>的連結下載 TinyTeX Library<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>：</p>
 <ul>
 <li><a href="http://bit.ly/TinyTex-linux">Linux x86_64</a></li>
 <li><a href="http://bit.ly/TinyTeX-win">Windows 7/10 64bit</a></li>
-<li>Mac 使用者請略過此節，閱讀 <a href="install.html#tinytex-manage">1.2.1.1</a> 節</li>
+<li>Mac 使用者在安裝 TinyTeX Library 時<strong>很可能會遇到問題</strong>。請跳過下方內容，直接從 <a href="install.html#mac">1.2.1.1.1</a> 節開始閱讀，幸運的話可以直接安裝成功。若失敗的話，可參考此二連結中的對話串：<a href="https://github.com/yihui/tinytex/issues/92">tinytex installation pain on Mac</a> 與 <a href="https://github.com/yihui/tinytex/issues/24">/usr/local/bin not writable</a>。</li>
 </ul>
 <p>下載檔案後，</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>將檔案解壓縮<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p></li>
-<li><p>將解壓後資料夾中的 <code>.TinyTeX/</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> 放至喜歡的路徑（e.g. <code>~/.TinyTeX</code>）</p></li>
+<li><p>將解壓後資料夾中的 <code>.TinyTeX/</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> 放至喜歡的路徑（e.g. <code>C:\Users\&lt;username&gt;\.TinyTeX</code>, 路徑儘量簡單且<strong>不能包含中文字</strong>）</p></li>
 <li><p>接著在 R 中執行：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">use_tinytex</span>()</code></pre></div>
-<p>即會跳出一個視窗。請選擇 <code>.TinyTeX/</code> 所在的路徑。</p></li>
+<p>即會跳出一個視窗。請選擇剛剛存放 <code>.TinyTeX/</code> 的路徑。</p></li>
 </ol>
 <p>若失敗詳見<a href="https://yihui.name/en/2018/08/tinytex-flash-drive">此篇文章</a>。</p>
 <div id="tinytex-manage" class="section level4">
@@ -247,7 +250,8 @@ remotes<span class="op">::</span><span class="kw">install_github</span>(<span cl
 <h5><span class="header-section-number">1.2.1.1.1</span> Mac</h5>
 <p>由於作者沒有 Mac 電腦，無法提供 Mac 版本的 TinyTeX，Mac 使用者需使用</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre></div>
-<p>安裝 TinyTeX，之後讓電腦在<a href="export-thesis.html#export-thesis">輸出論文</a>時，自動安裝所需的套件。</p>
+<p>安裝 TinyTeX，之後電腦在<a href="export-thesis.html#export-thesis">輸出論文</a>時，會自動安裝所需的套件。</p>
+<p>(若安裝失敗，請看看是否錯誤訊息與此二討論串中類似：<a href="https://github.com/yihui/tinytex/issues/92">tinytex installation pain on Mac</a>、<a href="https://github.com/yihui/tinytex/issues/24">/usr/local/bin not writable</a>)</p>
 <p>這會使得第一次輸出論文時會花費較多時間，然而，若願意的話，您可以將下載到您電腦上的 TinyTeX 提供給其他 Mac 使用者：</p>
 <p>成功輸出論文 PDF 後，執行</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">copy_tinytex</span>()</code></pre></div>

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>第 2 章 輸出論文 | 臺大論文模板</title>
-  <meta name="description" content="第 2 章 輸出論文 | 臺大論文模板">
+  <title>臺大論文模板</title>
+  <meta name="description" content="臺大論文模板">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta property="og:title" content="臺大論文模板" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="liao961120/ntuthesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta name="twitter:title" content="臺大論文模板" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="install.html">
-<link rel="next" href="write-thesis.html">
+
+<link rel="next" href="install.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -200,43 +200,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="export-thesis" class="section level1">
-<h1><span class="header-section-number">第 2 章</span> 輸出論文</h1>
-<div id="import-template" class="section level2">
-<h2><span class="header-section-number">2.1</span> 匯入論文模板</h2>
-<p>在 console 執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">import_template</span>(<span class="st">&quot;project_name&quot;</span>)</code></pre></div>
-<p>接著將該資料夾變更為 bookdown 專案（working dir 需為該專案資料夾）：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
-<p>詳細的檔案結構，見 <a href="write-thesis.html#dir-structure">3.1</a>。</p>
+<div id="header">
+<h1 class="title">臺大論文模板</h1>
+<p class="author"><em>廖永賦</em></p>
+<p class="date"><em>March 7, 2019</em></p>
 </div>
-<div id="edit-front-matter" class="section level2">
-<h2><span class="header-section-number">2.2</span> 編輯封面</h2>
-<p>在<code>_person-info.yml</code>輸入個人資料後執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
-<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，不須理會 <code>front-matter/</code> 中的其它檔案。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
-<p>使用者可以將 <code>front-matter/certification.pdf</code> 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 <code>certification-scan.pdf</code> ，取代專案資料夾<strong>根目錄</strong>中的同名檔案。</p>
-</div>
-<div id="compile-thesis" class="section level2">
-<h2><span class="header-section-number">2.3</span> Compile 論文</h2>
-<p>使用 RStudio Build Pane 裡的 button 輸出論文：</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="figs/build-button.gif" alt="透過 RStudio 輸出論文" width="100%" />
-<p class="caption">
-圖 2.1: 透過 RStudio 輸出論文
-</p>
-</div>
-<p>或是在 console 執行下方指令：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
-bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</code></pre></div>
-<p>如此便會在 <code>_book/</code> 中生成完整的論文（gitbook 和 PDF 格式）。</p>
+<div id="about" class="section level1 unnumbered">
+<h1>關於</h1>
+<p>這是 <a href="https://liao961120.github.io/ntuthesis">ntuthesis</a> 的說明文件。這份說明文件是以臺大論文格式所寫成，並且可以輸出成 HTML（GitBook），亦即您目前所見的文件，或是 PDF，亦即完整的臺大論文（可透過 navbar 上的 <i class="fa fa-file-pdf-o"></i> 查看）。</p>
+<p>使用此論文模板應至少對 R Markdown 有初步的了解，例如知道 Markdown 的基本語法並且曾透過 R Markdown 輸出 html_document。</p>
+<!-- 
+Below are code that paste acknowledgement and abstract in GitBook output. 
+Remove or wrap them around HTML comments if don't want to display them in GitBook.
+-->
+<!-- Acknowledgement -->
+<!-- # 誌謝 {- #acknowledge}
+ -->
+<!-- 非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+  非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+  非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+  
+  沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。 -->
+<!-- Abstract -->
+<!-- # 摘要 {- #abstract}
+ -->
+<!-- 
+\noindent
+**關鍵字：** 第二行開始、R Markdown、Bookdown、可重製研究 -->
+<!-- keywords -->
+<!-- <br><br> -->
+<!-- **keywords:**  -->
 
 <script>
   addClassKlippyToPreCode();
   addClassKlippyTo("pre.r, pre.markdown");
   addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
 </script>
-</div>
 </div>
 <br><br>
 <div id="disqus_thread"></div>
@@ -267,8 +266,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="write-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="install.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -298,7 +297,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/01-2-compile.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/index.Rmd",
 "text": "Edit"
 },
 "history": {

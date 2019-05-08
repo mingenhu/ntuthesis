@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>第 2 章 輸出論文 | 臺大論文模板</title>
-  <meta name="description" content="第 2 章 輸出論文 | 臺大論文模板">
+  <title>第 3 章 論文撰寫 | 臺大論文模板</title>
+  <meta name="description" content="第 3 章 論文撰寫 | 臺大論文模板">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta property="og:title" content="第 3 章 論文撰寫 | 臺大論文模板" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="liao961120/ntuthesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta name="twitter:title" content="第 3 章 論文撰寫 | 臺大論文模板" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="install.html">
-<link rel="next" href="write-thesis.html">
+<link rel="prev" href="export-thesis.html">
+<link rel="next" href="cheatsheet.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -200,36 +200,136 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="export-thesis" class="section level1">
-<h1><span class="header-section-number">第 2 章</span> 輸出論文</h1>
-<div id="import-template" class="section level2">
-<h2><span class="header-section-number">2.1</span> 匯入論文模板</h2>
-<p>在 console 執行：</p>
+<div id="write-thesis" class="section level1">
+<h1><span class="header-section-number">第 3 章</span> 論文撰寫</h1>
+<div id="dir-structure" class="section level2">
+<h2><span class="header-section-number">3.1</span> 檔案結構</h2>
+<p>執行以下指令後（詳見 <a href="export-thesis.html#import-template">2.1</a>）</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">import_template</span>(<span class="st">&quot;project_name&quot;</span>)</code></pre></div>
-<p>接著將該資料夾變更為 bookdown 專案（working dir 需為該專案資料夾）：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
-<p>詳細的檔案結構，見 <a href="write-thesis.html#dir-structure">3.1</a>。</p>
+<p>即會匯入論文模板。以下是論文模板的檔案結構（已簡化）：</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── project_name.Rmd     <span class="co"># Useless, please delete it</span>
+|
+├── R/                   <span class="co"># code chunk root dir, put R scripts and data here</span>
+├── figs/                <span class="co"># Put figures to include in the thesis here</span>
+|
+├── index.Rmd            <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
+├── _acknowledge.Rmd     <span class="co"># acknowledgement</span>
+├── _abstract-en.Rmd     <span class="co"># abstract</span>
+├── _abstract-zh.Rmd     <span class="co"># Same as above, but in Chinese</span>
+|
+├── 01-intro.Rmd         <span class="co"># Chapter 1 content</span>
+├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
+├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
+├── 80-appx-help.Rmd     <span class="co"># Appendix Content</span>
+├── 99-references.Rmd    <span class="co"># Edit &quot;References&quot; Title</span>
+├── ref.bib              <span class="co"># References</span>
+├── cite-style.csl       <span class="co"># Citation style</span>
+|
+├── _bookdown.yml        <span class="co"># label names in gitbook; Rmd files order</span>
+├── _output.yml          <span class="co"># preamble, pandoc args, cite-pkg</span>
+|
+├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)</span>
+├── _person-info.yml      <span class="co"># Info to generate front matter</span>
+├── certification-scan.pdf  <span class="co"># 已簽名&#39;口試委員審查書&#39;</span>
+└── front_matter
+    └── certification.pdf   <span class="co"># 空白&#39;口試委員審查書&#39;</span></code></pre></div>
 </div>
-<div id="edit-front-matter" class="section level2">
-<h2><span class="header-section-number">2.2</span> 編輯封面</h2>
-<p>在<code>_person-info.yml</code>輸入個人資料後執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
-<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，不須理會 <code>front-matter/</code> 中的其它檔案。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
-<p>使用者可以將 <code>front-matter/certification.pdf</code> 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 <code>certification-scan.pdf</code> ，取代專案資料夾<strong>根目錄</strong>中的同名檔案。</p>
+<div id="index-rmd" class="section level2">
+<h2><span class="header-section-number">3.2</span> <code>index.Rmd</code></h2>
+<p><code>index.Rmd</code> 是設定論文內文格式的地方，包含 yaml 以及 R setup code chunk。此模板將 code chunk 預設的 working directory 改成 <code>R/</code><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，如此較符合一般寫 Rscript 的邏輯<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。若要更改此設定，至 setup code chunk 更改 <code>knitr::opts_knit$set(root.dir='R')</code>。</p>
 </div>
-<div id="compile-thesis" class="section level2">
-<h2><span class="header-section-number">2.3</span> Compile 論文</h2>
-<p>使用 RStudio Build Pane 裡的 button 輸出論文：</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="figs/build-button.gif" alt="透過 RStudio 輸出論文" width="100%" />
+<div id="write-lang" class="section level2">
+<h2><span class="header-section-number">3.3</span> 撰寫語言</h2>
+<p>若使用<strong>英文</strong>撰寫論文，需修改 <code>_output.yml</code>、<code>_bookdown.yml</code> 這兩個檔案的內容。</p>
+<div id="output.yml" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> <code>_output.yml</code></h3>
+<p>將 <code>in_header: latex/preamble-zh.tex</code> 改為 <code>in_header: latex/preamble-en.tex</code>：</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
+  <span class="fu">includes:</span>
+    <span class="fu">in_header:</span><span class="at"> latex/preamble-en.tex</span></code></pre></div>
+</div>
+<div id="bookdown.yml" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> <code>_bookdown.yml</code></h3>
+<p><code>_bookdown.yml</code> 中，可以對標籤的名稱進行定義。這裡的設定與 PDF 輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook 輸出，可忽略此段。</p>
+<p>此外，<code>_bookdown.yml</code> 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>。</p>
+<p>在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
+  <span class="fu">html:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
+  <span class="fu">latex:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
+</div>
+</div>
+<div id="bib-cite" class="section level2">
+<h2><span class="header-section-number">3.4</span> 文獻引用</h2>
+<p>R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使用見 <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown 官方說明</a> 。</p>
+<p>此模板目前產生文獻格式的方法是依靠 <a href="https://github.com/jgm/pandoc-citeproc">Pandoc citeproc</a>，因此，文獻格式是依據 <code>cite-style.csl</code><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> 產生的。使用者可至 <a href="https://www.zotero.org/styles">Zotero Style Repository</a> 下載所需的 csl 檔並覆蓋專案資料夾中的 <code>cite-style.csl</code>。</p>
+<div id="ref-bib" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> <code>ref.bib</code></h3>
+<p><code>.bib</code> 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。匯出後，將檔名命名為 <code>ref.bib</code> 放在專案資料夾<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>。</p>
+<p><code>.bib</code> 內的一篇引用資料會類似：</p>
+<div class="sourceCode"><pre class="sourceCode bib"><code class="sourceCode bibtex"><span class="va">@article</span>{<span class="ot">leung2008</span>,
+  <span class="dt">title</span> = {Multicultural Experience Enhances Creativity: {{The}} When and How.},
+  <span class="dt">volume</span> = {63},
+  <span class="dt">issn</span> = {1935-990X(Electronic),0003-066X(Print)},
+  <span class="dt">doi</span> = {10.1037/0003-066X.63.3.169},
+  <span class="dt">number</span> = {3},
+  <span class="dt">journaltitle</span> = {American Psychologist},
+  <span class="dt">date</span> = {2008},
+  <span class="dt">pages</span> = {169-181},
+  <span class="dt">keywords</span> = {*Cognition,*Creativity,
+    *Culture (Anthropological),
+    *Experiences (Events),Multiculturalism},
+  <span class="dt">author</span> = {Leung, Angela Ka-yee and 
+    Maddux, William W. and 
+    Galinsky, Adam D. and Chiu, Chi-yue}
+}</code></pre></div>
+<p>其中第一行的 <code>leung2008</code> 即為 citation key。透過 <code>@citekey</code>(<code>@leung2008</code>)即可在文獻中插入 citation。匯出論文時，文末會自動產生引用的文獻。</p>
+</div>
+<div id="cite-syntax" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> 引用語法</h3>
+<a href="https://github.com/crsh/citr"><code>citr</code></a> 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="figs/citr.gif" alt="使用 citr 套件插入引用文獻" width="100%" />
 <p class="caption">
-圖 2.1: 透過 RStudio 輸出論文
+圖 3.1: 使用 citr 套件插入引用文獻
 </p>
 </div>
-<p>或是在 console 執行下方指令：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
-bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</code></pre></div>
-<p>如此便會在 <code>_book/</code> 中生成完整的論文（gitbook 和 PDF 格式）。</p>
+<p>當需要更複雜的引用格式，如標示第幾頁，可以修改透過 <code>citr</code> 插入的語法：</p>
+<ul>
+<li><code>Some text [@citekey].</code>
+<ul>
+<li>Some text <span class="citation">(Leung, Maddux, Galinsky, &amp; Chiu, <a href="#ref-leung2008">2008</a>)</span>.</li>
+</ul></li>
+<li><code>@citekey Some text</code>
+<ul>
+<li><span class="citation">Leung et al. (<a href="#ref-leung2008">2008</a>)</span> Some text</li>
+</ul></li>
+<li><code>@citekey [p. 20] Some text.</code>
+<ul>
+<li><span class="citation">Leung et al. (<a href="#ref-leung2008">2008</a>, p. 20)</span> Some text.</li>
+</ul></li>
+<li><code>Some text [-@citekey].</code>
+<ul>
+<li>Some text <span class="citation">(<a href="#ref-leung2008">2008</a>)</span></li>
+</ul></li>
+<li><code>Some text [@citekey1; @citekey2].</code>
+<ul>
+<li>Some text <span class="citation">(Leung et al., <a href="#ref-leung2008">2008</a>; 黃宣範, <a href="#ref-huangxuanfan1993">1993</a>)</span>.</li>
+</ul></li>
+<li>Prefix &amp; Suffix
+<ul>
+<li><code>Text [see @citekey1 pp.45; also, @citekey2 ch. 2].</code></li>
+<li>Text <span class="citation">(see Leung et al., <a href="#ref-leung2008">2008</a>, p. 45; also, 黃宣範, <a href="#ref-huangxuanfan1993">1993</a> ch. 2)</span>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="ref-manager" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> 書目管理軟體</h3>
+<p>這裡建議使用 Zotero 加上 <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a> 擴充功能。<code>citr</code> 對 Zotero 有額外的支持，且 <strong>Zotero 能夠控制 citation key 的格式</strong>（例如，last name + year），但其它書目管理軟體如 Endnote 產生的 citation key 難以讀懂且無法更改格式。</p>
+</div>
+<div id="multi-lang-cite" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> 多語言文獻引用</h3>
+<p>透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。</p>
+<p>多語言的引用或許可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至附錄 <a href="latex-cite-pkg.html#latex-cite-pkg">A</a> 給我一些指教。</p>
 
 <script>
   addClassKlippyToPreCode();
@@ -237,6 +337,26 @@ bookdown<span class="op">::</span><span class="kw">render_book</span>(<span clas
   addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
 </script>
 </div>
+</div>
+</div>
+<h3>參考資料</h3>
+<div id="refs" class="references">
+<div id="ref-leung2008">
+<p>Leung, A. K.-y., Maddux, W. W., Galinsky, A. D., &amp; Chiu, C.-y. (2008). Multicultural experience enhances creativity: The when and how. <em>American Psychologist</em>, <em>63</em>(3), 169–181. <a href="https://doi.org/10.1037/0003-066X.63.3.169" class="uri">https://doi.org/10.1037/0003-066X.63.3.169</a></p>
+</div>
+<div id="ref-huangxuanfan1993">
+<p>黃宣範. (1993). <em>語言、社會與族群意識: 臺灣語言社會學的研究</em>. 臺北市: 文鶴. Retrieved from <a href="http://tulips.ntu.edu.tw:1081/record=b1285025*cht" class="uri">http://tulips.ntu.edu.tw:1081/record=b1285025*cht</a></p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>預設是 Rmd 檔所在的位置。<a href="write-thesis.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>例如，使用相對路徑匯入資料時，一般會以 Rscript 所在的位置作為基準。<a href="write-thesis.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>此模板即未進行設定，因此第一章的內容寫在 <code>01-xxx.Rmd</code> 就會自動排在第一。而若檔名以底線開頭（<code>_</code>）則會被忽略。更多內容詳見 <a href="https://bookdown.org/yihui/bookdown/usage.html">bookdown</a>。<a href="write-thesis.html#fnref6">↩</a></p></li>
+<li id="fn7"><p>此模板提供的 <code>cite-style.csl</code> 是 APA 英文第六版。此外，<a href="http://blog.pulipuli.info/2011/05/zoteroapa.html" class="uri">http://blog.pulipuli.info/2011/05/zoteroapa.html</a> 亦有提供 APA 中文版的引用格式。需注意的是 Pandoc <strong>不支援雙語 csl</strong> (<a href="http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html" class="uri">http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html</a>)。<a href="write-thesis.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>或是可以自訂檔名，並到 <code>index.Rmd</code> yaml 中的 <code>bibliography: ref.bib</code> 更改 <code>ref.bib</code> 檔名。此外，亦可使用多個 <code>.bib</code> 檔：<code>bibliography: [ref1.bib, ref2.bib, ref3.bib]</code>。<a href="write-thesis.html#fnref8">↩</a></p></li>
+</ol>
 </div>
 <br><br>
 <div id="disqus_thread"></div>
@@ -267,8 +387,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="write-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="export-thesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cheatsheet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -298,7 +418,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/01-2-compile.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/02-write-thesis.Rmd",
 "text": "Edit"
 },
 "history": {

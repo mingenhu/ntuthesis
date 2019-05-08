@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>第 2 章 輸出論文 | 臺大論文模板</title>
-  <meta name="description" content="第 2 章 輸出論文 | 臺大論文模板">
+  <title>第 1 章 安裝 | 臺大論文模板</title>
+  <meta name="description" content="第 1 章 安裝 | 臺大論文模板">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta property="og:title" content="第 1 章 安裝 | 臺大論文模板" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="liao961120/ntuthesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta name="twitter:title" content="第 1 章 安裝 | 臺大論文模板" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="install.html">
-<link rel="next" href="write-thesis.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="export-thesis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -200,43 +200,71 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="export-thesis" class="section level1">
-<h1><span class="header-section-number">第 2 章</span> 輸出論文</h1>
-<div id="import-template" class="section level2">
-<h2><span class="header-section-number">2.1</span> 匯入論文模板</h2>
-<p>在 console 執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">import_template</span>(<span class="st">&quot;project_name&quot;</span>)</code></pre></div>
-<p>接著將該資料夾變更為 bookdown 專案（working dir 需為該專案資料夾）：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
-<p>詳細的檔案結構，見 <a href="write-thesis.html#dir-structure">3.1</a>。</p>
+<div id="install" class="section level1">
+<h1><span class="header-section-number">第 1 章</span> 安裝</h1>
+<div id="v1.0.0" class="section level3 unnumbered">
+<h3><code>v1.0.0</code></h3>
+<p>2019-02-10 之前已使用 <code>ntuthesis</code> 撰寫論文者，請下載 <code>v1.0.0</code>：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&#39;remotes&#39;)</span>
+remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis@v1.0.0&quot;</span>)</code></pre></div>
 </div>
-<div id="edit-front-matter" class="section level2">
-<h2><span class="header-section-number">2.2</span> 編輯封面</h2>
-<p>在<code>_person-info.yml</code>輸入個人資料後執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
-<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，不須理會 <code>front-matter/</code> 中的其它檔案。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
-<p>使用者可以將 <code>front-matter/certification.pdf</code> 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 <code>certification-scan.pdf</code> ，取代專案資料夾<strong>根目錄</strong>中的同名檔案。</p>
+<div id="e69c80e696b0e78988" class="section level3 unnumbered">
+<h3>最新版</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&#39;remotes&#39;)</span>
+remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis&quot;</span>)</code></pre></div>
+<p>新版的 <code>ntuthesis</code> 能加入其它學校的模板，目前正在開發中。API 與舊版兼容，但舊的 <code>ntu_bookdown</code> 模板已更新為 <code>ntu</code>，並且不容於新版。已使用 <code>ntu_bookdown</code> 模板者，請下載 <code>v1.0.0</code>。</p>
 </div>
-<div id="compile-thesis" class="section level2">
-<h2><span class="header-section-number">2.3</span> Compile 論文</h2>
-<p>使用 RStudio Build Pane 裡的 button 輸出論文：</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="figs/build-button.gif" alt="透過 RStudio 輸出論文" width="100%" />
-<p class="caption">
-圖 2.1: 透過 RStudio 輸出論文
-</p>
+<div id="ide" class="section level2">
+<h2><span class="header-section-number">1.1</span> IDE</h2>
+<p>建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH。</p>
 </div>
-<p>或是在 console 執行下方指令：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
-bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</code></pre></div>
-<p>如此便會在 <code>_book/</code> 中生成完整的論文（gitbook 和 PDF 格式）。</p>
+<div id="latex" class="section level2">
+<h2><span class="header-section-number">1.2</span> LaTeX</h2>
+<p>若已有管理、安裝 LaTeX 套件經驗者，可忽略。</p>
+<div id="tinytex-" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> tinytex 套件</h3>
+<p>若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</code></pre></div>
+<p>接著，選擇<strong>與電腦相同作業系統</strong>的連結下載 TinyTeX Library<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>：</p>
+<ul>
+<li><a href="http://bit.ly/TinyTex-linux">Linux x86_64</a></li>
+<li><a href="http://bit.ly/TinyTeX-win">Windows 7/10 64bit</a></li>
+<li>Mac 使用者請略過此節，閱讀 <a href="install.html#tinytex-manage">1.2.1.1</a> 節</li>
+</ul>
+<p>下載檔案後，</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>將檔案解壓縮<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p></li>
+<li><p>將解壓後資料夾中的 <code>.TinyTeX/</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> 放至喜歡的路徑（e.g. <code>~/.TinyTeX</code>）</p></li>
+<li><p>接著在 R 中執行：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">use_tinytex</span>()</code></pre></div>
+<p>即會跳出一個視窗。請選擇 <code>.TinyTeX/</code> 所在的路徑。</p></li>
+</ol>
+<p>若失敗詳見<a href="https://yihui.name/en/2018/08/tinytex-flash-drive">此篇文章</a>。</p>
+<div id="tinytex-manage" class="section level4">
+<h4><span class="header-section-number">1.2.1.1</span> LaTeX 套件管理</h4>
+<p>在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。然而，下載 LaTeX 套件需要許多時間，因此這裡提供預先下載好之 TinyTeX（Windows 和 Linux）。</p>
+<div id="mac" class="section level5">
+<h5><span class="header-section-number">1.2.1.1.1</span> Mac</h5>
+<p>由於作者沒有 Mac 電腦，無法提供 Mac 版本的 TinyTeX，Mac 使用者需使用</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre></div>
+<p>安裝 TinyTeX，之後讓電腦在<a href="export-thesis.html#export-thesis">輸出論文</a>時，自動安裝所需的套件。</p>
+<p>這會使得第一次輸出論文時會花費較多時間，然而，若願意的話，您可以將下載到您電腦上的 TinyTeX 提供給其他 Mac 使用者：</p>
+<p>成功輸出論文 PDF 後，執行</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">copy_tinytex</span>()</code></pre></div>
+<p>即會跳出一個新視窗。選擇資料夾後，即會將電腦上的 TinyTeX 複製到此資料夾。如此，下一位使用者只須將此資料夾複製到電腦上，並用 <code>tinytex::use_tinytex()</code> 設定 TinyTeX 的路徑至該資料夾，即可節省輸出論文時安裝 LaTeX 套件所耗費的時間。 希望使用 Mac 成功輸出論文的使用者能將 TinyTeX 的壓縮檔或連結提供給我，讓其他的使用者受益。</p>
 
-<script>
-  addClassKlippyToPreCode();
-  addClassKlippyTo("pre.r, pre.markdown");
-  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
-</script>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>根據 Yihui 的說明 (<a href="https://yihui.name/en/2018/08/tinytex-flash-drive" class="uri">https://yihui.name/en/2018/08/tinytex-flash-drive</a>)，TinyTex 具有可攜式（portable）的特性。<a href="install.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>Linux 使用者可用 <code>tar -zxvf tinytex-linux.tar.gz</code> 指令解壓縮。Windows 使用者可用 <a href="https://www.developershome.com/7-zip/">7-Zip</a> 解壓縮。<a href="install.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>在 Windows 上是 <code>TinyTeX/</code><a href="install.html#fnref3">↩</a></p></li>
+</ol>
 </div>
 <br><br>
 <div id="disqus_thread"></div>
@@ -267,8 +295,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="write-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="export-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -298,7 +326,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/01-2-compile.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/01-1-install.Rmd",
 "text": "Edit"
 },
 "history": {

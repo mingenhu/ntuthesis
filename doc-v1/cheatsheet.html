@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>第 2 章 輸出論文 | 臺大論文模板</title>
-  <meta name="description" content="第 2 章 輸出論文 | 臺大論文模板">
+  <title>第 4 章 語法 Cheatsheet | 臺大論文模板</title>
+  <meta name="description" content="第 4 章 語法 Cheatsheet | 臺大論文模板">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta property="og:title" content="第 4 章 語法 Cheatsheet | 臺大論文模板" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="liao961120/ntuthesis" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 2 章 輸出論文 | 臺大論文模板" />
+  <meta name="twitter:title" content="第 4 章 語法 Cheatsheet | 臺大論文模板" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="install.html">
-<link rel="next" href="write-thesis.html">
+<link rel="prev" href="write-thesis.html">
+<link rel="next" href="add-on.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -200,36 +200,317 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="export-thesis" class="section level1">
-<h1><span class="header-section-number">第 2 章</span> 輸出論文</h1>
-<div id="import-template" class="section level2">
-<h2><span class="header-section-number">2.1</span> 匯入論文模板</h2>
-<p>在 console 執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">import_template</span>(<span class="st">&quot;project_name&quot;</span>)</code></pre></div>
-<p>接著將該資料夾變更為 bookdown 專案（working dir 需為該專案資料夾）：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
-<p>詳細的檔案結構，見 <a href="write-thesis.html#dir-structure">3.1</a>。</p>
+<div id="cheatsheet" class="section level1">
+<h1><span class="header-section-number">第 4 章</span> 語法 Cheatsheet</h1>
+<p>下文許多內容直接自 <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown</a> 擷取。想完整了解者，請閱讀 Bookdown 中的內容。</p>
+<div id="chapter-cross-ref" class="section level2">
+<h2><span class="header-section-number">4.1</span> 章節連結</h2>
+<div id="define-anchor" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> 錨點定義</h3>
+<p>在內文中，可以使用特殊語法建立前往其它章節的連結，但首先每個章節需要有<strong>錨點</strong>。若章節標題由英數組成，例如 <code>## Experimental Design</code>， 則錨點會自動被定義成 <code>experimental-design</code>。若<strong>標題含有中文</strong>，例如 <code>## 實驗設計</code> 則需<strong>自行定義錨點</strong>：<code>## 實驗設計 {#exp-design}</code>。</p>
 </div>
-<div id="edit-front-matter" class="section level2">
-<h2><span class="header-section-number">2.2</span> 編輯封面</h2>
-<p>在<code>_person-info.yml</code>輸入個人資料後執行：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
-<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，不須理會 <code>front-matter/</code> 中的其它檔案。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
-<p>使用者可以將 <code>front-matter/certification.pdf</code> 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 <code>certification-scan.pdf</code> ，取代專案資料夾<strong>根目錄</strong>中的同名檔案。</p>
+<div id="section-4.1.2" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> 內文連結</h3>
+<p>要在內文建立連至其它章節的連結，需使用 <code>\@ref(anchor)</code> 的語法，例如，</p>
+<ul>
+<li>連結至 <code>## Experimental Design</code>
+<ul>
+<li><code>\@ref(experimental-design)</code></li>
+</ul></li>
+<li>連結至 <code>## 實驗設計 {#exp-design}</code>
+<ul>
+<li><code>\@ref(exp-design)</code></li>
+</ul></li>
+</ul>
 </div>
-<div id="compile-thesis" class="section level2">
-<h2><span class="header-section-number">2.3</span> Compile 論文</h2>
-<p>使用 RStudio Build Pane 裡的 button 輸出論文：</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="figs/build-button.gif" alt="透過 RStudio 輸出論文" width="100%" />
+</div>
+<div id="math" class="section level2">
+<h2><span class="header-section-number">4.2</span> 數學</h2>
+<div id="unnumbered-equations" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Unnumbered Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation*</span>}<span class="ss"> </span>
+<span class="sc">\frac</span><span class="ss">{d}{dx}</span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\int</span><span class="ss">_{a}^{x} f(u)</span><span class="sc">\,</span><span class="ss">du</span><span class="sc">\right</span><span class="ss">)=f(x)</span>
+<span class="kw">\end</span>{<span class="ex">equation*</span>} </code></pre></div>
+<span class="math display">\[\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}\]</span>
+</div>
+<div id="numbered-equations" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Numbered Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="ss">  f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) = </span><span class="sc">\binom</span><span class="ss">{n}{k} p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span>
+<span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:bino)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>} 
+
+式 <span class="fu">\@ref</span>(eq:bino)</code></pre></div>
+<span class="math display" id="eq:binom">\[\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \tag{4.1}
+\end{equation}\]</span>
+<p>式 <a href="cheatsheet.html#eq:binom">(4.1)</a></p>
+</div>
+<div id="multi-line-aligned-equations" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Multi-line Aligned Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="kw">\begin</span>{<span class="ex">split</span>}
+<span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span>
+<span class="kw">\end</span>{<span class="ss">split}</span>
+<span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>}
+
+詳見公式 <span class="fu">\@ref</span>(eq:var-beta)</code></pre></div>
+<span class="math display" id="eq:var-bet">\[\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+\tag{4.2}
+\end{equation}\]</span>
+<p>詳見公式 <a href="cheatsheet.html#eq:var-bet">(4.2)</a></p>
+</div>
+<div id="theorem-proof" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> 定理與證明</h3>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, thm-label, name=&quot;Pythagorean theorem&quot;}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```
+
+詳見定理 \@ref(thm:thm-label)</code></pre></div>
+
+<div class="theorem">
+<span id="thm:pyth" class="theorem"><strong>Theorem 4.1  (Pythagorean theorem)  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have <span class="math display">\[a^2 + b^2 = c^2\]</span>
+</div>
+
+<p>詳見定理 <a href="cheatsheet.html#thm:pyth">4.1</a></p>
+</div>
+<div id="environment" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> 環境</h3>
+<p>除了 <code>theorem</code> 之外，還可以使用其它 bookdown 提供的環境。例如，將 code chunk 中 <code>theorem</code> 換成 <code>proof</code>, <code>remark</code>, <code>solution</code><a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>。</p>
+<p>表 <a href="cheatsheet.html#tab:theorem-envs">4.1</a> 呈現 bookdown 中的<a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs">引用環境</a>。</p>
+
+<table>
+<caption><span id="tab:theorem-envs">表 4.1: </span>Theorem environments in <strong>bookdown</strong>.</caption>
+<thead>
+<tr class="header">
+<th align="left">Environment</th>
+<th align="left">Printed Name</th>
+<th align="left">Label Prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">theorem</td>
+<td align="left">Theorem</td>
+<td align="left">thm</td>
+</tr>
+<tr class="even">
+<td align="left">lemma</td>
+<td align="left">Lemma</td>
+<td align="left">lem</td>
+</tr>
+<tr class="odd">
+<td align="left">corollary</td>
+<td align="left">Corollary</td>
+<td align="left">cor</td>
+</tr>
+<tr class="even">
+<td align="left">proposition</td>
+<td align="left">Proposition</td>
+<td align="left">prp</td>
+</tr>
+<tr class="odd">
+<td align="left">conjecture</td>
+<td align="left">Conjecture</td>
+<td align="left">cnj</td>
+</tr>
+<tr class="even">
+<td align="left">definition</td>
+<td align="left">Definition</td>
+<td align="left">def</td>
+</tr>
+<tr class="odd">
+<td align="left">example</td>
+<td align="left">Example</td>
+<td align="left">exm</td>
+</tr>
+<tr class="even">
+<td align="left">exercise</td>
+<td align="left">Exercise</td>
+<td align="left">exr</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="figure-referencing" class="section level2">
+<h2><span class="header-section-number">4.3</span> Figure Referencing</h2>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{r iris, fig.cap= &quot;The iris data.&quot;}
+library(ggplot2)
+pl_iris &lt;- ggplot(data = iris) +
+<span class="bn">             geom_point(aes(x = Sepal.Length,</span>
+<span class="bn">                            y = Sepal.Width,</span>
+<span class="bn">                            color = Species)</span>
+<span class="bn">                        )</span>
+pl_iris
+```</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:iris"></span>
+<img src="ntu-bookdown_files/figure-html/iris-1.png" alt="The iris data." width="70%" />
 <p class="caption">
-圖 2.1: 透過 RStudio 輸出論文
+圖 4.1: The iris data.
 </p>
 </div>
-<p>或是在 console 執行下方指令：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
-bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</code></pre></div>
-<p>如此便會在 <code>_book/</code> 中生成完整的論文（gitbook 和 PDF 格式）。</p>
+<p><code>見圖 \@ref(fig:iris)</code>產生：見圖 <a href="cheatsheet.html#fig:iris">4.1</a></p>
+<div id="figure-caption" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Figure Caption</h3>
+<p>對於比較複雜的 caption，可以使用 Text reference 的方式：</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.
+
+```{r dia, fig.cap=&#39;(ref:dia)&#39;, fig.show=&#39;hold&#39;, out.width=c(&#39;48%&#39;,&#39;48%&#39;)}
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, 
+<span class="bn">                 y = price,</span>
+<span class="bn">                 color = cut),</span>
+<span class="bn">             size = 0.1) +</span>
+  guides(color = guide_legend(
+<span class="bn">    override.aes = list(size = 2)</span>
+<span class="bn">    ))</span>
+
+pl_iris # Second figure
+```</code></pre></div>
+
+<div class="figure" style="text-align: center"><span id="fig:foo"></span>
+<img src="ntu-bookdown_files/figure-html/foo-1.png" alt="插入引用資料 (Kassin, Fein, &amp; Markus, 2017) 的 Figure Caption." width="48%" /><img src="ntu-bookdown_files/figure-html/foo-2.png" alt="插入引用資料 (Kassin, Fein, &amp; Markus, 2017) 的 Figure Caption." width="48%" />
+<p class="caption">
+圖 4.2: 插入<strong>引用資料</strong> <span class="citation">(Kassin, Fein, &amp; Markus, <a href="#ref-kassin2017">2017</a>)</span> 的 Figure Caption.
+</p>
+</div>
+</div>
+</div>
+<div id="table-referencing" class="section level2">
+<h2><span class="header-section-number">4.4</span> Table Referencing</h2>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">(ref:mtcars) Dynamic variable in caption: <span class="bn">`r Sys.time()`</span>.
+
+```{r mtcars, echo=FALSE}
+knitr::kable(
+  head(mtcars[, 1:8], 5), booktabs = TRUE,
+  caption = &#39;(ref:mtcars)&#39;
+  )
+```
+
+<span class="fu">### Link Table in Later Sections {-}</span>
+見表 \@ref(tab:mtcars)</code></pre></div>
+
+<table>
+<caption><span id="tab:mtcar">表 4.2: </span>Dynamic variable in caption: 2019-03-07 16:05:22.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mazda RX4</td>
+<td align="right">21</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.9</td>
+<td align="right">2.6</td>
+<td align="right">16</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td>Mazda RX4 Wag</td>
+<td align="right">21</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.9</td>
+<td align="right">2.9</td>
+<td align="right">17</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td>Datsun 710</td>
+<td align="right">23</td>
+<td align="right">4</td>
+<td align="right">108</td>
+<td align="right">93</td>
+<td align="right">3.9</td>
+<td align="right">2.3</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Hornet 4 Drive</td>
+<td align="right">21</td>
+<td align="right">6</td>
+<td align="right">258</td>
+<td align="right">110</td>
+<td align="right">3.1</td>
+<td align="right">3.2</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Hornet Sportabout</td>
+<td align="right">19</td>
+<td align="right">8</td>
+<td align="right">360</td>
+<td align="right">175</td>
+<td align="right">3.1</td>
+<td align="right">3.4</td>
+<td align="right">17</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<div id="link-table-in-later-sections" class="section level3 unnumbered">
+<h3>Link Table in Later Sections</h3>
+<p>見表 <a href="cheatsheet.html#tab:mtcar">4.2</a></p>
+</div>
+</div>
+<div id="section-4.5" class="section level2">
+<h2><span class="header-section-number">4.5</span> 總整理</h2>
+<ul>
+<li><code>\@ref(section-anchor)</code></li>
+<li><code>(ref:mtcar) Text refereces</code></li>
+<li><code>\@ref(fig:fig-label)</code>
+<ul>
+<li><code>fig-label</code> is code chunk label</li>
+</ul></li>
+<li><code>\@ref(thm:thm-label)</code>
+<ul>
+<li><code>thm-label</code> is code chunk label</li>
+</ul></li>
+<li><code>\@ref(tab:tab-label)</code>
+<ul>
+<li><code>tab-label</code> is code chunk label. Use text reference for complicated captions.</li>
+</ul></li>
+<li><code>\@ref(eq:eq-label)</code>
+<ul>
+<li>Defined as <code>(\#eq:eq-label)</code> in LaTeX equation environment</li>
+</ul></li>
+</ul>
 
 <script>
   addClassKlippyToPreCode();
@@ -237,6 +518,18 @@ bookdown<span class="op">::</span><span class="kw">render_book</span>(<span clas
   addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
 </script>
 </div>
+</div>
+<h3>參考資料</h3>
+<div id="refs" class="references">
+<div id="ref-kassin2017">
+<p>Kassin, S., Fein, S., &amp; Markus, H. R. (2017). <em>Social Psychology</em> (10th ed.). Boston: Cengage Learning.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="9">
+<li id="fn9"><p><code>theorem</code>、<code>proof</code>、<code>remark</code> 這三者無法被 cross-reference。<a href="cheatsheet.html#fnref9">↩</a></p></li>
+</ol>
 </div>
 <br><br>
 <div id="disqus_thread"></div>
@@ -267,8 +560,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="write-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-thesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="add-on.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -298,7 +591,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/01-2-compile.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/03-bookdown-demo.Rmd",
 "text": "Edit"
 },
 "history": {
