@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • ntuthesis</title>
+<title>Wrapper of Docker `liao961120/tinytex` to Compile PDF — docker_xelatex • ntuthesis</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,10 @@
 
   <link href="../extra.css" rel="stylesheet">
   <script src="../extra.js"></script>
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Wrapper of Docker `liao961120/tinytex` to Compile PDF — docker_xelatex" />
+
+<meta property="og:description" content="Wrapper of Docker `liao961120/tinytex` to Compile PDF" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -49,7 +52,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -127,84 +130,44 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Wrapper of Docker `liao961120/tinytex` to Compile PDF</h1>
+    <small class="dont-index">Source: <a href='https://github.com/liao961120/ntuthesis/blob/master/R/docker-tinytex.R'><code>R/docker-tinytex.R</code></a></small>
+    <div class="hidden name"><code>docker_xelatex.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Wrapper of Docker `liao961120/tinytex` to Compile PDF</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="comp_front.html">comp_front()</a></code> </p>
-        </td>
-        <td><p>Compile front matter to PDF</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="docker_xelatex.html">docker_xelatex()</a></code> </p>
-        </td>
-        <td><p>Wrapper of Docker `liao961120/tinytex` to Compile PDF</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="download_fonts.html">download_fonts()</a></code> </p>
-        </td>
-        <td><p>Download font dependencies for traditional Chinese Rmd PDF output</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="import_template.html">import_template()</a></code> </p>
-        </td>
-        <td><p>Import Thesis Template</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="init_proj.html">init_proj()</a></code> </p>
-        </td>
-        <td><p>Initialize current directory as a bookdown project</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="render_thesis_docker.html">render_thesis_docker()</a></code> </p>
-        </td>
-        <td><p>Render Book With Docker</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tex_book.html">tex_book()</a></code> </p>
-        </td>
-        <td><p>Modified Version of `bookdown::pdf_book`</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tex_document.html">tex_document()</a></code> </p>
-        </td>
-        <td><p>Modified Version of `bookdown::pdf_document2`</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>docker_xelatex</span>(<span class='no'>fpath</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fpath</th>
+      <td><p>String. The path to <code>.tex</code> file.</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
+    <p><a href='https://hub.docker.com/r/liao961120/tinytex'>https://hub.docker.com/r/liao961120/tinytex</a></p>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#references">References</a></li>
+          </ul>
+
   </div>
 </div>
 

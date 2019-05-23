@@ -145,11 +145,16 @@ root directory of the bookdown project." />
     
     </div>
 
-    <pre class="usage"><span class='fu'>comp_front</span>(<span class='kw'>template</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ntu"</span>))</pre>
+    <pre class="usage"><span class='fu'>comp_front</span>(<span class='kw'>use_docker</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>template</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ntu"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>use_docker</th>
+      <td><p>Logical. Whether to use tinytex docker
+to compile PDF.</p></td>
+    </tr>
     <tr>
       <th>template</th>
       <td><p>String. The template used. Defaults to
